@@ -16,13 +16,13 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
+      <!--<div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">NFT</div>
       </div>
-    </div>
+	  -->
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -91,11 +91,14 @@
         // config.devicePixelRatio = 1;
 
 
-      } else {
+      }  
+	  else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "540px";
-        canvas.style.height = "960px";
+        canvas.style.width = ((getHeight()-getHeight()*.1)*9/16)+"px";
+        canvas.style.height = (getHeight()-getHeight()*.1)+"px";
+		console.log('Width:  ' +  ((getHeight()-getHeight()*.1)*9/16) );
+		console.log('Height: ' +(getHeight()-getHeight()*.1) );
       }
 
       loadingBar.style.display = "block";
@@ -116,6 +119,24 @@
             };
 
       document.body.appendChild(script);
+	  function getWidth() {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+}
+
+function getHeight() {
+  return Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    document.documentElement.clientHeight
+  );
 
     </script>
   </body>
